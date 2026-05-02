@@ -5,9 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 var swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 /*
-Configuration of Swagger
+Configuration de Swagger
 */
 const swaggerDefinition = {
   openapi: '3.0.0',
@@ -19,7 +20,6 @@ const swaggerDefinition = {
 
 const options = {
   swaggerDefinition,
-  // Paths to files containing OpenAPI definitions
   apis: ['./routes/*.js'],
 };
 
@@ -27,7 +27,7 @@ const swaggerSpec = swaggerJSDoc(options);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const swaggerUi = require('swagger-ui-express');
+const sequelize = require('./db/database');
 
 var app = express();
 
@@ -42,4 +42,12 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+/*
+* Test de la connexion à la base de données
+*/
+sequelize.authenticate()
+    .then(() => console.log('Connexion à la base de donnée réussie.'))
+    .catch(err => console.error('Connexion impossible :', err));
+
+module.exports = sequelize;
 module.exports = app;
