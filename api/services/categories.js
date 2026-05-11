@@ -18,13 +18,13 @@ exports.getAll = async (req, res, next) => {
 // Récupération des artisans par catégorie
 exports.getByCategorie = async (req, res, next) => {
     try {
-        const selectedArtisans = await Artisan.findAll({
+        const artisans = await Artisan.findAll({
             include: [{ model: Specialite,
                 include: [{ model: Categorie }] 
             }],
             where: { '$Specialite.id_categorie$': req.params.id }
         });
-        return res.status(200).json(selectedArtisans)
+        return res.status(200).json(artisans)
     } catch (error) {
         console.error("Erreur de récupération des artisans par catégorie", error);
         return res.status(500).json({ message: 'Erreur serveur', error: error.message });
