@@ -1,12 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+const service = require('../services/categories');
 
-});
+router.get('/', service.getAll);
 
-router.get('/:id/artisans', (req, res) => {
-
-});
+router.get('/:id/artisans', service.getByCategorie);
 
 modules.export = router;

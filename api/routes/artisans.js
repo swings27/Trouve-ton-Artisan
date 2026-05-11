@@ -1,17 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
+const service = require('../services/artisans');
 
-router.get('/top', (req, res) => {
+router.get('/top', service.getTopArtisan);
 
-});
+router.get('/search', service.getSearchedArtisan);
 
-router.get('/search', (req, res) => {
-
-});
-
-router.get('/:id', (req, res) => {
-  
-});
+router.get('/:id', service.getById);
 
 module.exports = router;

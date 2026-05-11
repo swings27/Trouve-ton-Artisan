@@ -1,6 +1,8 @@
 const Artisan = require("../models/artisans");
 const Specialite = require("../models/specialites");
 
+
+// Récupérer la fiche d'un artisan
 exports.getById = async (req, res, next) => {
 	try {
 		const selectedArtisan = await Artisan.findByPk(req.params.id, {
@@ -20,6 +22,8 @@ exports.getById = async (req, res, next) => {
 	}
 };
 
+
+// Récupérer les artisans mis en avant
 exports.getTopArtisan = async (req, res, next) => {
 	try {
 		const topArtisans = await Artisan.findAll({
@@ -36,6 +40,7 @@ exports.getTopArtisan = async (req, res, next) => {
 	}
 };
 
+// Récupérer un artisan par son nom
 exports.getSearchedArtisan = async (req, res, next) => {
 	try {
 		const searchedArtisan = await Artisan.findAll({
