@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const Artisan = require("../models/artisans");
 const Specialite = require("../models/specialites");
 

@@ -24,7 +24,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 /*
 * Test de la connexion à la base de données

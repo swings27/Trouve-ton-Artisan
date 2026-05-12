@@ -5,7 +5,8 @@ const Specialite = sequelize.define('Specialite', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
+        field: 'id_specialite'
     },
     nom: {
         type: DataTypes.STRING(50),

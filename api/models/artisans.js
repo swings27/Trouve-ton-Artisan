@@ -1,12 +1,23 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
+/**
+ * @module Artisan
+ * @description Model Sequelize représentant la table artisan
+ */
 const Artisan = sequelize.define('Artisan', {
+    /**
+     * @property {number} id - Clé primaire (mappe vers la colonne id_artisan en BDD)
+     */
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
+        field: 'id_artisan'
     },
+    /**
+     * @property {string} nom - Nom de l'artisan ou de l'entreprise
+     */
     nom: {
         type: DataTypes.STRING(50),
         allowNull: false

@@ -7,4 +7,4 @@ router.get('/', service.getAll);
 
 router.get('/:id/artisans', service.getByCategorie);
 
-modules.export = router;
+module.exports = router;
