@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('./models/associations');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -11,7 +12,6 @@ const swaggerSpec = require('./config/swagger');
 const sequelize = require('./config/database');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 var app = express();
 
@@ -24,7 +24,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 /*
 * Test de la connexion à la base de données
