@@ -1,11 +1,59 @@
+/**
+ * @module artisansRouter
+ * @description Routes de l'API pour les artisans.
+ * Préfixe : /artisans — branché dans index.js
+ */
+
 const express = require("express");
 const router = express.Router();
-
+const { param, query } = require('express-validator');
 const validate = require("../middlewares/validate");
 const service = require("../services/artisans");
 
+/**
+ * @swagger
+ * tags:
+ *   name: Artisans
+ *   description: Gestion et consultation des artisans
+ */
+
+/**
+ * @swagger
+ * /artisans/top:
+ *   get:
+ *     summary: Récupère les trois artisans mis en avant
+ *     tags: [Artisans]
+ *     responses:
+ *       200:
+ *         description: Liste des artisans du mois
+ *       500:
+ *         description: Erreur serveur
+ */
 router.get("/top", service.getTopArtisan);
 
+/**
+ * @swagger
+ * /artisans/search:
+ *   get:
+ *     summary: Recherche des artisans par nom
+ *     tags: [Artisans]
+ *     parameters:
+ *       - in: query
+ *         name: nom
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Terme de recherche (partiel)
+ *     responses:
+ *       200:
+ *         description: Liste des artisans correspondants
+ *       400:
+ *         description: Paramètre nom manquant ou invalide
+ *       404:
+ *         description: Aucun artisan trouvé
+ *       500:
+ *         description: Erreur serveur
+ */
 router.get(
 	"/search",
 	query("nom")
@@ -17,6 +65,29 @@ router.get(
 	service.getSearchedArtisan,
 );
 
+/**
+ * @swagger
+ * /artisans/{id}:
+ *   get:
+ *     summary: Récupère la fiche complète d'un artisan
+ *     tags: [Artisans]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Identifiant de l'artisan
+ *     responses:
+ *       200:
+ *         description: Fiche complète de l'artisan
+ *       400:
+ *         description: Identifiant invalide
+ *       404:
+ *         description: Artisan non trouvé
+ *       500:
+ *         description: Erreur serveur
+ */
 router.get(
 	"/:id",
 	param("id").isInt({ min: 1 }).withMessage("Id doit être un entier positif"),
