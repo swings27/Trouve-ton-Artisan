@@ -6,8 +6,7 @@
     },
     "opts": {
         "destination": "./docs",
-        "recurse": true,
-        "readme": "./README.md"
+        "recurse": true
     },
     "plugins": ["plugins/markdown"],
     "templates": {
