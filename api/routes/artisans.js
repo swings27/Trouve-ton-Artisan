@@ -1,12 +1,98 @@
-const express = require('express');
+/**
+ * @module artisansRouter
+ * @description Routes de l'API pour les artisans.
+ * Préfixe : /artisans — branché dans index.js
+ */
+
+const express = require("express");
 const router = express.Router();
+const { param, query } = require('express-validator');
+const validate = require("../middlewares/validate");
+const service = require("../services/artisans");
 
-const service = require('../services/artisans');
+/**
+ * @swagger
+ * tags:
+ *   name: Artisans
+ *   description: Gestion et consultation des artisans
+ */
 
-router.get('/top', service.getTopArtisan);
+/**
+ * @swagger
+ * /artisans/top:
+ *   get:
+ *     summary: Récupère les trois artisans mis en avant
+ *     tags: [Artisans]
+ *     responses:
+ *       200:
+ *         description: Liste des artisans du mois
+ *       500:
+ *         description: Erreur serveur
+ */
+router.get("/top", service.getTopArtisan);
 
-router.get('/search', service.getSearchedArtisan);
+/**
+ * @swagger
+ * /artisans/search:
+ *   get:
+ *     summary: Recherche des artisans par nom
+ *     tags: [Artisans]
+ *     parameters:
+ *       - in: query
+ *         name: nom
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Terme de recherche (partiel)
+ *     responses:
+ *       200:
+ *         description: Liste des artisans correspondants
+ *       400:
+ *         description: Paramètre nom manquant ou invalide
+ *       404:
+ *         description: Aucun artisan trouvé
+ *       500:
+ *         description: Erreur serveur
+ */
+router.get(
+	"/search",
+	query("nom")
+		.notEmpty()
+		.withMessage("Le paramètre nom est requis")
+		.trim()
+		.escape(),
+	validate,
+	service.getSearchedArtisan,
+);
 
-router.get('/:id', service.getById);
+/**
+ * @swagger
+ * /artisans/{id}:
+ *   get:
+ *     summary: Récupère la fiche complète d'un artisan
+ *     tags: [Artisans]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Identifiant de l'artisan
+ *     responses:
+ *       200:
+ *         description: Fiche complète de l'artisan
+ *       400:
+ *         description: Identifiant invalide
+ *       404:
+ *         description: Artisan non trouvé
+ *       500:
+ *         description: Erreur serveur
+ */
+router.get(
+	"/:id",
+	param("id").isInt({ min: 1 }).withMessage("Id doit être un entier positif"),
+	validate,
+	service.getById,
+);
 
 module.exports = router;
