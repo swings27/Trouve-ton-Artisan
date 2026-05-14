@@ -64,6 +64,16 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 /** Routes principales — préfixe / (contient /artisans et /categories) */
 app.use('/', indexRouter);
 
+// Gestion des erreurs 404
+/**
+ * Middleware de gestion des routes non trouvées.
+ * Intercepte toutes les requêtes ne correspondant à aucune route définie.
+ * Retourne une réponse JSON — ne concerne pas la page 404 React.
+ */
+app.use((req, res) => {
+    res.status(404).json({ message: 'Route non trouvée.' });
+});
+
 // Connexion à la base de données
 /**
  * Teste la connexion à la base de données au démarrage du serveur.
