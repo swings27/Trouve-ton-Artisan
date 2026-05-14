@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Graphik';
+  src: url('../assets/fonts/Graphik-Regular.ttf') format('ttf');
+  font-weight: 400;   // Regular
+  font-style: normal;
+  font-display: swap; // 
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url('../assets/fonts/Graphik-Medium.ttf') format('ttf');
+  font-weight: 500;   // Medium
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url('../assets/fonts/Graphik-Bold.ttf') format('ttf');
+  font-weight: 700;   // Bold
+  font-style: normal;
+  font-display: swap;
+}

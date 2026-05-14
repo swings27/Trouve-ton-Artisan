@@ -1,0 +1,12 @@
+@use './fonts';
+@use './variables' as *;
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  margin: 0;
+  font-family: $font-main;
+  color: $color-dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
