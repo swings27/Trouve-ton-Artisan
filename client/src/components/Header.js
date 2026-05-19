@@ -50,7 +50,7 @@ export default function Header() {
 							categories.map((categorie) => (
 								<Nav.Link
 									key={categorie.id}
-									href={`/${categorie.nom}/listing`}
+									href={`/${categorie.nom}/artisans`}
 								>
 									{categorie.nom}
 								</Nav.Link>

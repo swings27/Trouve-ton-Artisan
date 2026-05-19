@@ -38,6 +38,16 @@ body {
   }
 };
 
+.step-picture {
+  width: auto;
+  height: 150px;
+  max-height: 300px;
+
+  @include respond-to(lg) {
+    height: 250px;
+  }
+}
+
 
 .footer {
   width: 100%;
