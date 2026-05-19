@@ -1,0 +1,21 @@
+@use "./variables" as *;
+
+@mixin respond-to($bp) {
+	@if $bp == sm {
+		@media (min-width: 576px) {
+			@content;
+		}
+	} @else if $bp == md {
+		@media (min-width: 768px) {
+			@content;
+		}
+	} @else if $bp == lg {
+		@media (min-width: 992px) {
+			@content;
+		}
+	} @else if $bp == xl {
+		@media (min-width: 1200px) {
+			@content;
+		}
+	}
+};
