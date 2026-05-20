@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import logo from "../assets/images/Logo.png";
+import SearchBar from "./SearchBar";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
@@ -32,11 +33,7 @@ export default function Header() {
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Form className="d-flex">
-						<Form.Control
-							type="search"
-							placeholder="Rechercher un artisan..."
-							aria-label="Rechercher un artisan"
-						/>
+						<SearchBar />
 					</Form>
 					<Nav className="ms-auto">
 						{loading && <Nav.Link disabled>Chargement...</Nav.Link>}
