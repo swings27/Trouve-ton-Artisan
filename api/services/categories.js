@@ -20,7 +20,7 @@ const Artisan = require('../models/artisans');
 exports.getAll = async (req, res, next) => {
     try {
         const categories = await Categorie.findAll({
-            attributes: ['nom']
+            attributes: ['id', 'nom']
         });
         return res.status(200).json(categories)
     } catch (error) {

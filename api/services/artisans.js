@@ -4,10 +4,9 @@
  * Chaque fonction correspond à une requête Sequelize utilisée par les routes artisans.
  */
 
-const { Op } = require('sequelize');
+const { Op } = require("sequelize");
 const Artisan = require("../models/artisans");
 const Specialite = require("../models/specialites");
-
 
 /**
  * Récupère un artisan par son identifiant avec sa spécialité.
@@ -24,7 +23,7 @@ const Specialite = require("../models/specialites");
 exports.getById = async (req, res, next) => {
 	try {
 		const selectedArtisan = await Artisan.findByPk(req.params.id, {
-			include: [{ model: Specialite }],
+			include: [{ model: Specialite, attributes: ['nom'] }],
 		});
 
 		if (!selectedArtisan) {
@@ -81,7 +80,7 @@ exports.getSearchedArtisan = async (req, res, next) => {
 	try {
 		const searchedArtisan = await Artisan.findAll({
 			where: { nom: { [Op.like]: `%${req.query.nom}%` } },
-            include: [{ model: Specialite }]
+			include: [{ model: Specialite }],
 		});
 
 		if (!searchedArtisan.length) {
