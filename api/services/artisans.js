@@ -85,7 +85,7 @@ exports.getSearchedArtisan = async (req, res, next) => {
 		});
 
 		if (!searchedArtisan.length) {
-			return res.status(404).json({ message: "Artisan non trouvé" });
+			return res.status(200).json([]);
 		}
 
 		return res.status(200).json(searchedArtisan);
