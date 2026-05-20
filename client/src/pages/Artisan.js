@@ -45,7 +45,7 @@ export default function Artisan() {
                         </div>
 			        </section>
                     <section>
-                        <FormArtisan />
+                        <FormArtisan id={id} emailArtisan={artisan.email} />
                     </section>
 		        </div>
             )};

@@ -31,7 +31,7 @@ app.use(helmet());
 /** CORS — restreint les appels à l'origine frontend déclarée dans .env */
 app.use(cors({
     origin: process.env.CORS_ORIGIN,
-    methods: ['GET'],
+    methods: ['GET', 'POST'],
     optionsSuccessStatus: 200
 }));
 /** Rate limiting — 100 requêtes max par IP sur 15 minutes */

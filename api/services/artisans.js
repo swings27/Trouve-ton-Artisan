@@ -5,6 +5,7 @@
  */
 
 const { Op } = require("sequelize");
+const nodemailer = require('nodemailer');
 const Artisan = require("../models/artisans");
 const Specialite = require("../models/specialites");
 
@@ -95,3 +96,43 @@ exports.getSearchedArtisan = async (req, res, next) => {
 			.json({ message: "Erreur serveur", error: error.message });
 	}
 };
+
+exports.contactArtisan = async (req, res, next) => {
+	try {
+		const wantedArtisan = await Artisan.findByPk(req.params.id);
+
+		if(!wantedArtisan) {
+			return res.status(404).json({ message: "Artisan non trouvé" });
+		}
+
+		const testAccount = await nodemailer.createTestAccount();
+
+		const transporter = nodemailer.createTransport({
+			host: 'smtp.ethereal.email',
+			port: 587,
+			secure: false,
+			auth: {
+				user: process.env.ETHEREAL_USER,
+				pass: process.env.ETHEREAL_PASS
+			}
+		});
+
+		const info = await transporter.sendMail({
+			from: '"Trouve ton Artisan" <noreply@trouve-ton-artisan.fr>',
+			to: wantedArtisan.email,
+			replyTo: req.body.email,
+			subject: req.body.objet,
+			text: `Message de ${req.body.nom} (${req.body.email}):\n\n${req.body.message}`
+		});
+
+		console.log('Email consultable ici :', nodemailer.getTestMessageUrl(info));
+
+		return res.status(200).json({ message: 'Email envoyé avec succès.' });
+
+	} catch(error) {
+		console.error("Erreur de l'envoi de l'email :", error);
+		return res
+			.status(500)
+			.json({ message: "Erreur serveur", error: error.message });
+	}
+}
