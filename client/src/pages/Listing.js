@@ -53,6 +53,7 @@ export default function Listing() {
 						artisans.map((artisan) => (
 							<ArtisanCard
 								key={artisan.id}
+                                id={artisan.id}
 								nom={artisan.nom}
 								specialite={artisan.specialite}
 								ville={artisan.ville}
