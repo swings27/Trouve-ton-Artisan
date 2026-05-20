@@ -1,11 +1,11 @@
 import React from 'react';
+import image from "../assets/images/erreur-404.png"
 
 export default function NotFound() {
     return (
         <>
-            <div className="">
-                <h1>404</h1>
-            </div>
+            <img src={image} alt="" aria-hidden="true" />
+            <h1>Page non trouvée.</h1>
         </>
     )
 };
