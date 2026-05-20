@@ -6,7 +6,7 @@
 
 const express = require("express");
 const router = express.Router();
-const { param, query } = require('express-validator');
+const { body, param, query } = require('express-validator');
 const validate = require("../middlewares/validate");
 const service = require("../services/artisans");
 
@@ -93,6 +93,68 @@ router.get(
 	param("id").isInt({ min: 1 }).withMessage("Id doit être un entier positif"),
 	validate,
 	service.getById,
+);
+
+/**
+ * @swagger
+ * /artisans/{id}/contact:
+ *   post:
+ *     summary: Envoie un email à l'artisan via le formulaire de contact
+ *     tags: [Artisans]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Identifiant de l'artisan
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [nom, email, objet, message]
+ *             properties:
+ *               nom:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               objet:
+ *                 type: string
+ *               message:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Email envoyé avec succès
+ *       400:
+ *         description: Données invalides
+ *       404:
+ *         description: Artisan non trouvé
+ *       500:
+ *         description: Erreur serveur
+ */
+router.post('/:id/contact',
+    param('id')
+        .isInt({ min: 1 })
+        .withMessage('L\'id doit être un entier positif'),
+    body('nom')
+        .trim().escape()
+        .isLength({ min: 5 })
+        .withMessage('Le nom doit contenir au moins 5 caractères'),
+    body('email')
+        .isEmail().withMessage('Email expéditeur invalide')
+        .normalizeEmail(),
+    body('objet')
+        .trim().escape()
+        .isLength({ min: 5 })
+        .withMessage('L\'objet doit contenir au moins 5 caractères'),
+    body('message')
+        .trim().escape()
+        .isLength({ min: 20 })
+        .withMessage('Le message doit contenir au moins 20 caractères'),
+    validate,
+    service.contactArtisan
 );
 
 module.exports = router;
