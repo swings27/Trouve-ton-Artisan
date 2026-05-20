@@ -140,18 +140,18 @@ router.post('/:id/contact',
         .withMessage('L\'id doit être un entier positif'),
     body('nom')
         .trim().escape()
-        .isLength({ min: 5 })
+        .isLength({ min: 5, max: 100 })
         .withMessage('Le nom doit contenir au moins 5 caractères'),
     body('email')
         .isEmail().withMessage('Email expéditeur invalide')
         .normalizeEmail(),
     body('objet')
         .trim().escape()
-        .isLength({ min: 5 })
+        .isLength({ min: 5, max: 100 })
         .withMessage('L\'objet doit contenir au moins 5 caractères'),
     body('message')
         .trim().escape()
-        .isLength({ min: 20 })
+        .isLength({ min: 20, max: 2000 })
         .withMessage('Le message doit contenir au moins 20 caractères'),
     validate,
     service.contactArtisan

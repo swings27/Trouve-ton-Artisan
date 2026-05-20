@@ -112,8 +112,8 @@ exports.contactArtisan = async (req, res, next) => {
 			port: 587,
 			secure: false,
 			auth: {
-				user: testAccount.user,
-				pass: testAccount.pass
+				user: process.env.ETHEREAL_USER,
+				pass: process.env.ETHEREAL_PASS
 			}
 		});
 
