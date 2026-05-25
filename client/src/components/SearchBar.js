@@ -51,40 +51,51 @@ export default function SearchBar() {
 		);
 	};
 
-	//Cliquer sur le résultat
+	// Cliquer sur le résultat
 	const handleSelect = (artisan) => {
 		setSearch("");
 		setResults([]);
 		navigate(`/artisans/${artisan.id}`);
 	};
 
+	// Cliquer sur le bouton
+	const handleSubmit = (e) => {
+		e.preventDefault(); 
+
+		if (results.length > 0) {
+			handleSelect(results[0]);
+			return;
+		}
+
+		if (search.trim().length < 2) return;
+	};
+
 	return (
-		<div style={{ position: "relative" }}>
-			<Form.Control
-				type="search"
-				placeholder="Rechercher un artisan..."
-				value={search}
-				onChange={(e) => setSearch(e.target.value)}
-				aria-label="Rechercher un artisan"
-				aria-expanded={results.length > 0}
-				aria-autocomplete="list"
-			/>
-			{search.trim().length >= 2 && (
-				<ul
-					style={{
-						position: "absolute",
-						top: "100%",
-						left: 0,
-						right: 0,
-						zIndex: 1000,
-						listStyle: "none",
-						padding: 0,
-						margin: 0,
-						background: "white",
-						border: "1px solid #ccc",
-						borderRadius: "4px",
-					}}
+		<form
+			className="search-bar"
+			style={{ position: "relative" }}
+			onSubmit={handleSubmit}
+		>
+			<div className="search-input-group p-1">
+				<Form.Control
+					type="search"
+					placeholder="Nom artisan ..."
+					value={search}
+					onChange={(e) => setSearch(e.target.value)}
+					aria-label="Rechercher un artisan par son nom"
+					aria-expanded={results.length > 0}
+					aria-autocomplete="list"
+				/>
+				<button
+					className="search-btn"
+					type="submit"
+					aria-label="Lancer la recherche"
 				>
+					<i className="bi bi-search" aria-hidden="true"></i>
+				</button>
+			</div>
+			{search.trim().length >= 2 && (
+				<ul className="search-dropdown">
 					{searching && <li>Recherche ...</li>}
 
 					{!searching && results.length === 0 && <li>Aucun artisan trouvé</li>}
@@ -101,6 +112,6 @@ export default function SearchBar() {
 						))}
 				</ul>
 			)}
-		</div>
+		</form>
 	);
 }

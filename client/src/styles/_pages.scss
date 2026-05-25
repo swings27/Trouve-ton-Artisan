@@ -1,0 +1,17 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+// Home
+.step-container {
+  background-color: $color-light-blue;
+}
+
+.step-picture {
+  width: auto;
+  height: 150px;
+  max-height: 300px;
+
+  @include respond-to(lg) {
+    height: 250px;
+  }
+}

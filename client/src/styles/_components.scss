@@ -1,0 +1,155 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+// Header
+.header {
+	box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.0793474);
+}
+
+.header .search-input-group {
+	border-bottom: 1px solid $color-blue;
+	border-right: 1px solid $color-blue;
+	border-top: 0;
+	border-left: 0;
+	border-radius: 0;
+}
+
+.logo {
+	width: auto;
+	height: 100px;
+	object-fit: contain;
+
+	@include respond-to(lg) {
+		height: 150px;
+	}
+}
+
+.header .nav-link {
+	padding: 5px;
+
+	&:hover {
+		font-weight: bold;
+		color: $color-dark;
+		border-bottom: 2px solid $color-dark;
+	}
+
+	&:active {
+		font-weight: bold;
+		color: $color-blue;
+	}
+}
+
+// Footer
+.footer {
+	width: 100%;
+	background-color: $color-blue;
+
+	.footer-logo {
+		background-color: $color-background;
+	}
+}
+
+.info-block {
+  color: $color-background;
+
+  a {
+		color: $color-background;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.medias {
+	background-color: $color-background;
+}
+
+.bi-facebook,
+.bi-linkedin,
+.bi-youtube {
+	color: $color-dark;
+	font-size: 1.5rem;
+
+	&:hover {
+		color: $color-blue;
+	}
+}
+
+.bi-instagram,
+.bi-twitter-x,
+.bi-whatsapp,
+.bi-tiktok {
+	color: $color-background;
+	background-color: $color-dark;
+	padding: 4px;
+	border-radius: 5px;
+	font-size: 1rem;
+
+	&:hover {
+		background-color: $color-blue;
+	}
+}
+
+// SearchBar
+.search-input-group {
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	background: white;
+
+  &:focus-within {
+    border-color: $color-blue;
+    box-shadow: 0 0 0 2px $color-green;
+  }
+
+	.form-control {
+		border: none;
+		outline: none;
+    background: transparent;
+    flex: 1;
+
+		&::placeholder {
+			color: rgba($color-dark, 0.6);
+			opacity: 1;
+		}
+
+    &:focus {
+      box-shadow: none;
+      border: none;
+      outline: none;
+    }
+	}
+
+	.search-btn {
+		border: none;
+		background: transparent;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+		color: $color-blue;
+    flex-shrink: 0;
+
+		&:hover {
+			color: $color-background;
+			background-color: $color-dark-blue;
+		}
+	}
+}
+
+.search-dropdown {
+	position: absolute;
+	top: "100%";
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	list-style: none;
+	padding: 5px;
+	margin: 0;
+	background: white;
+	border: 1px solid #ccc;
+	border-radius: 25px;
+}
