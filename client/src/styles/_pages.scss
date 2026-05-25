@@ -11,8 +11,8 @@
 // Home
 .find-person {
   background-color: $color-light-blue;
+  margin-top: -40px;
   border-radius: 50px 50px 0 0;
-  margin-top: -50px;
   position: relative;
   z-index: 1;
 
@@ -51,6 +51,13 @@
       background-color: $color-dark-blue !important;
       opacity: 1 !important;
     }
+  }
+}
+
+//Listing
+.listing {
+  .top-title {
+    color: $color-red;
   }
 }
 

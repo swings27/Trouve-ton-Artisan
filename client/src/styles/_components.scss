@@ -3,28 +3,29 @@
 
 //Layout
 .layout-main {
-	& > section:last-child, 
+	& > section:last-child,
 	& > div:last-child {
-		position: relative;
-		z-index: 1;
-		margin-bottom: -60px;
-		padding-bottom: 80px;
-		background: $color-background;
-		border-radius: 50px;
+	position: relative;
+	z-index: 1;
+	margin-bottom: -60px;
+	padding-bottom: 80px;
+	background: $color-background;
+	border-radius: 50px;
 	}
 }
-.home-header {
-  background-image: url('../assets/images/vuedelyon.jpg');
-  background-size: cover;
-  background-position: center 40%;
-  background-repeat: no-repeat;
-  min-height: 500px;
-  position: relative;
-  padding-bottom: 60px;
 
-  .search-input-group {
-    border-radius: 25px;
-  }
+.home-header {
+	background-image: url("../assets/images/vuedelyon.jpg");
+	background-size: cover;
+	background-position: center 40%;
+	background-repeat: no-repeat;
+	min-height: 500px;
+	position: relative;
+	padding-bottom: 60px;
+
+	.search-input-group {
+		border-radius: 25px;
+	}
 }
 
 // Header
@@ -32,11 +33,11 @@
 	box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.0793474);
 
 	.search-input-group {
-	border-bottom: 1px solid $color-blue;
-	border-right: 1px solid $color-blue;
-	border-top: 0;
-	border-left: 0;
-	border-radius: 0;
+		border-bottom: 1px solid $color-blue;
+		border-right: 1px solid $color-blue;
+		border-top: 0;
+		border-left: 0;
+		border-radius: 0;
 	}
 }
 
@@ -79,9 +80,9 @@
 }
 
 .info-block {
-  color: $color-background;
+	color: $color-background;
 
-  a {
+	a {
 		color: $color-background;
 
 		&:hover {
@@ -121,7 +122,9 @@
 }
 
 //StarsNote
-.bi-star, .bi-star-fill, .bi-star-half {
+.bi-star,
+.bi-star-fill,
+.bi-star-half {
 	font-size: 1.2rem;
 	color: $color-green;
 }
@@ -145,12 +148,12 @@
 
 //Etape
 .step-picture {
-  width: auto;
-  height: 150px;
+	width: auto;
+	height: 150px;
 
-  @include respond-to(lg) {
-    height: 200px;
-  }
+	@include respond-to(lg) {
+		height: 200px;
+	}
 }
 
 .step-text {
