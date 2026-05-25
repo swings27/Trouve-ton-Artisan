@@ -26,7 +26,7 @@ export default function Header() {
 	}, []);
 
 	return (
-		<Navbar data-bs-theme="light" expand="lg" className="header p-0 mb-5">
+		<Navbar data-bs-theme="light" expand="lg" className="header p-0">
 			<Container fluid="lg">
 				<div className="d-flex align-items-center w-100">
 					<Navbar.Brand href="/" className="flex-grow-1">

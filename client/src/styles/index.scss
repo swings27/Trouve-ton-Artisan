@@ -20,12 +20,10 @@ body {
   color: $color-dark;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  h1, h2, h3, h4, h5 {
+    font-weight: bold;
+  }
 }
 
 a {

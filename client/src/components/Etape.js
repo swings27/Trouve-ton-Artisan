@@ -1,13 +1,14 @@
 import React from "react";
+import Col from "react-bootstrap/esm/Col";
 
 export default function Etape({ image, number, description }) {
 	return (
-		<div className="mx-auto p-3 mb-3 text-center">
+		<Col xl={3} md={6} sm={12} className="mx-auto p-3 mb-3 text-center">
 			<img src={image} alt="" aria-hidden="true" className="step-picture mx-auto" />
-			<div className="my-3">
-				<h5>Etape - {number}</h5>
+			<div className="step-text my-3">
+				<h4>Etape - {number}</h4>
 				<p>{description}</p>
 			</div>
-		</div>
+		</Col>
 	);
 }

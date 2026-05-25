@@ -76,7 +76,7 @@ export default function SearchBar() {
 			style={{ position: "relative" }}
 			onSubmit={handleSubmit}
 		>
-			<div className="search-input-group p-1">
+			<div className="search-input-group p-2">
 				<Form.Control
 					type="search"
 					placeholder="Nom artisan ..."

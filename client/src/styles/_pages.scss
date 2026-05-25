@@ -1,17 +1,69 @@
 @use './variables' as *;
 @use './mixins' as *;
 
-// Home
-.step-container {
-  background-color: $color-light-blue;
+.top-title {
+  width: 30px;
+  border: none;
+  border-top: 5px solid;
+  opacity: 1;
 }
 
-.step-picture {
-  width: auto;
-  height: 150px;
-  max-height: 300px;
+// Home
+.home-search {
+  background-image: url('../assets/images/vuedelyon.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+  min-height: 500px;
+  position: relative;
+  padding-bottom: 60px;
 
-  @include respond-to(lg) {
-    height: 250px;
+  .search-input-group {
+    border-radius: 25px;
   }
 }
+
+.find-person {
+  background-color: $color-light-blue;
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
+  position: relative;
+  z-index: 1;
+
+  .top-title {
+    border-color: $color-background;
+  }
+
+  .step-title {
+    background-color: $color-red;
+    color: $color-background;
+    width: fit-content;
+  }
+}
+
+.top-person {
+  background-color: $color-background;
+
+  .top-title {
+    border-color: $color-green;
+  }
+
+  h2 {
+    color: $color-dark-blue;
+  }
+}
+
+.carousel-indicators {
+  button {
+    background-color: $color-dark-blue !important;
+    opacity: 0.3 !important;
+    border: none;
+
+    // Dot actif
+    &.active {
+      background-color: $color-dark-blue !important;
+      opacity: 1 !important;
+    }
+  }
+}
+

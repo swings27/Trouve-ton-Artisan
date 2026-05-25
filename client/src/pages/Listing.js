@@ -55,7 +55,7 @@ export default function Listing() {
 								key={artisan.id}
                                 id={artisan.id}
 								nom={artisan.nom}
-								specialite={artisan.specialite}
+								specialite={artisan.Specialite.nom}
 								ville={artisan.ville}
 								note={artisan.note}
 							/>
