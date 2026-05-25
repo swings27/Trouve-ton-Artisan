@@ -9,20 +9,6 @@
 }
 
 // Home
-.home-search {
-  background-image: url('../assets/images/vuedelyon.jpg');
-  background-size: cover;
-  background-position: center 40%;
-  background-repeat: no-repeat;
-  min-height: 500px;
-  position: relative;
-  padding-bottom: 60px;
-
-  .search-input-group {
-    border-radius: 25px;
-  }
-}
-
 .find-person {
   background-color: $color-light-blue;
   border-radius: 50px 50px 0 0;
@@ -43,6 +29,7 @@
 
 .top-person {
   background-color: $color-background;
+  border-radius: 0 0 50px 50px;
 
   .top-title {
     border-color: $color-green;

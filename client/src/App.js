@@ -1,27 +1,59 @@
-import React from 'react';
-import { Routes, Route} from 'react-router-dom';
-import Home from './pages/Home';
-import Listing from './pages/Listing';
-import Artisan from './pages/Artisan';
-import Legals from './pages/Legals';
-import NotFound from './pages/NotFound';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import Listing from "./pages/Listing";
+import Artisan from "./pages/Artisan";
+import Legals from "./pages/Legals";
+import NotFound from "./pages/NotFound";
 
 function App() {
-  return (
-    <div className="App">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/:categorie/artisans" element={<Listing />} />
-        <Route path="/artisans/:id" element={<Artisan />} />
-        <Route path="/legals" element={<Legals />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </div>
-  );
+	return (
+		<div className="App">
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<Layout hero>
+							<Home />
+						</Layout>
+					}
+				/>
+				<Route
+					path="/:categorie/artisans"
+					element={
+						<Layout>
+							<Listing />
+						</Layout>
+					}
+				/>
+				<Route
+					path="/artisans/:id"
+					element={
+						<Layout>
+							<Artisan />
+						</Layout>
+					}
+				/>
+				<Route
+					path="/legals"
+					element={
+						<Layout>
+							<Legals />
+						</Layout>
+					}
+				/>
+				<Route
+					path="*"
+					element={
+						<Layout>
+							<NotFound />
+						</Layout>
+					}
+				/>
+			</Routes>
+		</div>
+	);
 }
 
 export default App;

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ArtisanCard from "../components/ArtisanCard";
-import SearchBar from "../components/SearchBar";
 import Etape from "../components/Etape";
 import Step1 from "../assets/images/telephone-intelligent.png";
 import Step2 from "../assets/images/la-diversite.png";
@@ -29,93 +28,88 @@ export default function Home() {
 	}, []);
 
 	return (
-		<main>
-			<section className="home-search d-flex align-items-center">
-				<Container fluid="lg">
-					<SearchBar />
-				</Container>
-			</section>
+		<>
 			<Container fluid="lg" className="px-0">
-					<section className="find-person py-5 pt-5">
-						<div className="step-title py-3 px-5 mt-5">
-							<hr className="top-title" />
-							<h1>Comment trouver mon artisan ?</h1>
-						</div>
-						<Container className="p-2 my-4">
-							<Row>
-								<Etape
-									image={Step1}
-									number="1"
-									description="Choisir la catégorie d'artisanat dans le menu"
-								/>
-								<Etape
-									image={Step2}
-									number="2"
-									description="Choisir un artisan"
-								/>
-								<Etape
-									image={Step3}
-									number="3"
-									description="Le contacter via le formulaire de contact"
-								/>
-								<Etape
-									image={Step4}
-									number="4"
-									description="Une réponse sera apportée sous 48h"
-								/>
-							</Row>
-						</Container>
-					</section>
-					<section className="top-person py-5 px-3">
+				<section className="find-person py-5 pt-5">
+					<div className="step-title py-3 px-5 mt-5">
 						<hr className="top-title" />
-						<h2>Artisans du mois</h2>
-						<div>
-							{loading && <p>Chargement ...</p>}
+						<h1>Comment trouver mon artisan ?</h1>
+					</div>
+					<Container className="p-2 my-4">
+						<Row>
+							<Etape
+								image={Step1}
+								number="1"
+								description="Choisir la catégorie d'artisanat dans le menu"
+							/>
+							<Etape
+								image={Step2}
+								number="2"
+								description="Choisir un artisan"
+							/>
+							<Etape
+								image={Step3}
+								number="3"
+								description="Le contacter via le formulaire de contact"
+							/>
+							<Etape
+								image={Step4}
+								number="4"
+								description="Une réponse sera apportée sous 48h"
+							/>
+						</Row>
+					</Container>
+				</section>
+				<section className="top-person py-5 px-3">
+					<hr className="top-title" />
+					<h2>Artisans du mois</h2>
+					<div>
+						{loading && <p>Chargement ...</p>}
 
-							{!loading && error && <p>Erreur de chargement.</p>}
+						{!loading && error && <p>Erreur de chargement.</p>}
 
-							{!loading && !error && (
-								<>
-									<div className="d-sm-none py-5 px-4">
-										<Carousel
-											aria-label="Les 3 artisans du mois"
-											indicators={true}
-											controls={true}
-											interval={null}
-											className="pb-4"
-										>
-											{artisans.map((artisan) => (
-												<Carousel.Item key={artisan.id} className="px-2 pb-5">
-													<div className="d-flex justify-content-center">
-														<ArtisanCard
-															id={artisan.id}
-															nom={artisan.nom}
-															specialite={artisan.Specialite.nom}
-															ville={artisan.ville}
-															note={artisan.note}
-														/>
-													</div>
-												</Carousel.Item>
-											))}
-										</Carousel>
-									</div>
-									<div className="d-none d-sm-flex flex-column align-items-center flex-lg-row justify-content-evenly gap-5 py-5">
+						{!loading && !error && (
+							<>
+								<div className="d-sm-none py-5 px-4">
+									<Carousel
+										aria-label="Les 3 artisans du mois"
+										indicators={true}
+										controls={true}
+										interval={null}
+										className="pb-4"
+									>
 										{artisans.map((artisan) => (
-											<ArtisanCard
-												key={artisan.id}
-												id={artisan.id}
-												nom={artisan.nom}
-												specialite={artisan.Specialite.nom}
-												ville={artisan.ville}
-												note={artisan.note}
-											/>
+											<Carousel.Item key={artisan.id} className="px-2 pb-5">
+												<div className="d-flex justify-content-center">
+													<ArtisanCard
+														id={artisan.id}
+														nom={artisan.nom}
+														specialite={artisan.Specialite.nom}
+														ville={artisan.ville}
+														note={artisan.note}
+													/>
+												</div>
+											</Carousel.Item>
 										))}
-									</div>
-								</>
-							)}
-						</div>
-					</section>
+									</Carousel>
+								</div>
+								<div className="d-none d-sm-flex flex-column align-items-center flex-lg-row justify-content-evenly gap-5 py-5">
+									{artisans.map((artisan) => (
+										<ArtisanCard
+											key={artisan.id}
+											id={artisan.id}
+											nom={artisan.nom}
+											specialite={artisan.Specialite.nom}
+											ville={artisan.ville}
+											note={artisan.note}
+										/>
+									))}
+								</div>
+							</>
+						)}
+					</div>
+				</section>
 			</Container>
-		</main>
+		</>
 	);
 }
