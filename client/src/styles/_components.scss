@@ -163,3 +163,43 @@
 		color: $color-red;
 	}
 }
+
+//Form
+
+.form-artisan {
+	background-color: $color-dark-blue;
+	box-shadow: 1px 4px 4px rgba(0, 0, 0, 25%);
+	color: $color-background;
+
+	.top-title {
+		color: $color-red;
+	}
+
+	.form-label {
+		font-weight: bold;
+	}
+
+	.form-control {
+		background-color: $color-light-blue;
+		
+		&:focus-within {
+			box-shadow: 0 0 0 3px $color-green;
+  		}
+
+		&.is-invalid {
+			box-shadow: 0 0 0 3px $color-red;
+		}
+	}
+
+	.btn-form {
+		background-color: $color-background;
+		color: $color-blue;
+		border: none;
+		font-weight: bold;
+
+		&:hover {
+			background-color: $color-green;
+			color: $color-background;
+		}
+	}
+}

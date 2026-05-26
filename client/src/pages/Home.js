@@ -33,7 +33,7 @@ export default function Home() {
 				<section className="find-person py-5 pt-5">
 					<div className="step-title py-3 px-5 mt-5">
 						<hr className="top-title" />
-						<h1>Comment trouver mon artisan ?</h1>
+						<h1 className="title-text">Comment trouver mon artisan ?</h1>
 					</div>
 					<Container className="p-2 my-4">
 						<Row>

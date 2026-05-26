@@ -20,6 +20,10 @@
     border-color: $color-background;
   }
 
+  .title-text {
+    color: $color-background;
+  }
+
   .step-title {
     background-color: $color-red;
     color: $color-background;
@@ -60,4 +64,31 @@
     color: $color-red;
   }
 }
+
+//Fiche Artisan
+.defaultpic {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.artisan-bar {
+  padding: 0 5px 0 5px;
+  color: $color-background;
+  background-color: $color-green;
+
+  .bi {
+    color: $color-background;
+  }
+}
+
+.form-section {
+  border-left: 2px solid $color-blue;
+  padding-left: 50px;
+
+  .contact {
+    color: $color-green;
+  }
+}
+
 
