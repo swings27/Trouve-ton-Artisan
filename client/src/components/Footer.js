@@ -1,25 +1,13 @@
 import React from "react";
 import logo from "../assets/images/Logo.png";
-import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Media from "./Media";
+import Legals from "./Legals";
+
 
 export default function Footer() {
-	const Media = ({ icon, href = "#", label }) => (
-		<li className="list-inline-item">
-			<a href={href} aria-label={label}>
-				<i className={icon}></i>
-			</a>
-		</li>
-	);
-
-	const Legals = ({ name }) => (
-		<li className="py-2">
-			<Link to="/legals">{name}</Link>
-		</li>
-	);
-
 	return (
 		<div className="footer">
 			<Container fluid="lg" className="info-block p-3">
