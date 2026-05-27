@@ -1,5 +1,5 @@
 import React from "react";
-import Col from "react-bootstrap/esm/Col";
+import Col from "react-bootstrap/Col";
 
 export default function Etape({ image, number, description }) {
 	return (

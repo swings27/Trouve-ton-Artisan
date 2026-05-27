@@ -5,7 +5,7 @@ import Step1 from "../assets/images/telephone-intelligent.png";
 import Step2 from "../assets/images/la-diversite.png";
 import Step3 from "../assets/images/formulaire-de-contact.png";
 import Step4 from "../assets/images/chronometre.png";
-import Container from "react-bootstrap/esm/Container";
+import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Carousel from "react-bootstrap/Carousel";
 

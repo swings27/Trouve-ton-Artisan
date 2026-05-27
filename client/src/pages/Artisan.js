@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import FormArtisan from "../components/Form";
 import StarsNote from "../components/StarsNote";
-import { Col, Container, Row } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 import picdefault from "../assets/images/menuiserie.jpg";
 
 export default function Artisan() {

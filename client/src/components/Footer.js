@@ -1,9 +1,9 @@
 import React from "react";
 import logo from "../assets/images/Logo.png";
 import { Link } from "react-router-dom";
-import Container from "react-bootstrap/esm/Container";
+import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/esm/Col";
+import Col from "react-bootstrap/Col";
 
 export default function Footer() {
 	const Media = ({ icon, href = "#", label }) => (
