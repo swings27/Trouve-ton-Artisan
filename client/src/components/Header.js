@@ -7,12 +7,22 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-
 export default function Header() {
 	const [categories, setCategories] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const [searchOpen, setSearchOpen] = useState(false);
+	const [menuOpen, setMenuOpen] = useState(false);
+
+	const handleSearchOpen = () => {
+		setSearchOpen(!searchOpen);
+		setMenuOpen(false);
+	};
+
+	const handleMenuOpen = () => {
+		setMenuOpen(!menuOpen);
+		setSearchOpen(false);
+	};
 
 	useEffect(() => {
 		fetch(`${process.env.REACT_APP_API_URL}/categories`)
@@ -39,20 +49,31 @@ export default function Header() {
 						/>
 					</Navbar.Brand>
 					<Button
-						className="d-lg-none me-2"
-						aria-controls="search-collapse"
-						onClick={() => setSearchOpen(!searchOpen)}
+						className="d-lg-none me-2 search-toggle"
+						onClick={handleSearchOpen}
 						aria-expanded={searchOpen}
+						aria-controls="search-collapse"
+						aria-label="Ouvrir la recherche"
 					>
 						<i className="bi bi-search" aria-hidden="true"></i>
 					</Button>
-					<Navbar.Toggle aria-controls="basic-navbar-nav" />
+					<button
+						className="d-lg-none navbar-toggler burger-btn"
+						onClick={handleMenuOpen}
+						aria-expanded={menuOpen}
+						aria-controls="basic-navbar-nav"
+						aria-label="Ouvrir le menu"
+					>
+						<i className="bi bi-list"></i>
+						<p>Menu</p>
+					</button>
 				</div>
 				<div className="d-flex flex-lg-column align-items-end gap-3 flex-md-row">
 					<Navbar.Collapse in={searchOpen} id="search-collapse">
 						<SearchBar />
 					</Navbar.Collapse>
 					<Navbar.Collapse
+						in={menuOpen}
 						id="basic-navbar-nav"
 						className="justify-content-end"
 					>
