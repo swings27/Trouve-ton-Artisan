@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -105,10 +104,13 @@ export default function FormArtisan({ id }) {
 	};
 
 	return (
-		<Form noValidate onSubmit={handleSubmit}>
+		<Form noValidate onSubmit={handleSubmit} className="form-artisan p-4 mt-4">
 			<Row className="mb-3">
-				<Form.Group as={Col} md="6" controlId="nom">
-					<Form.Label>Nom</Form.Label>
+				<Form.Group as={Col} md="8" controlId="nom">
+					<Form.Label>
+						<hr className="top-title" />
+						Nom
+					</Form.Label>
 					<Form.Control
 						type="text"
 						name="nom"
@@ -117,14 +119,19 @@ export default function FormArtisan({ id }) {
 						onChange={handleChange}
 						isInvalid={!!errors.nom}
 						aria-required="true"
+						className="mb-1 rounded-pill border-0"
 					/>
 					<Form.Control.Feedback type="invalid">
 						{errors.nom}
 					</Form.Control.Feedback>
 				</Form.Group>
-
-				<Form.Group as={Col} md="6" controlId="email">
-					<Form.Label>Email</Form.Label>
+			</Row>
+			<Row>
+				<Form.Group as={Col} md="8" controlId="email">
+					<Form.Label>
+						<hr className="top-title" />
+						Email
+					</Form.Label>
 					<Form.Control
 						type="email"
 						name="email"
@@ -133,6 +140,7 @@ export default function FormArtisan({ id }) {
 						onChange={handleChange}
 						isInvalid={!!errors.email}
 						aria-required="true"
+						className="mb-3 rounded-pill border-0"
 					/>
 					<Form.Control.Feedback type="invalid">
 						{errors.email}
@@ -140,8 +148,11 @@ export default function FormArtisan({ id }) {
 				</Form.Group>
 			</Row>
 			<Row className="mb-3">
-				<Form.Group as={Col} md="12" controlId="objet">
-					<Form.Label>Objet</Form.Label>
+				<Form.Group as={Col} md="8" controlId="objet">
+					<Form.Label>
+						<hr className="top-title" />
+						Objet
+					</Form.Label>
 					<Form.Control
 						type="text"
 						name="objet"
@@ -150,6 +161,7 @@ export default function FormArtisan({ id }) {
 						onChange={handleChange}
 						isInvalid={!!errors.objet}
 						aria-required="true"
+						className="mb-1 rounded-pill border-0"
 					/>
 					<Form.Control.Feedback type="invalid">
 						{errors.objet}
@@ -158,7 +170,10 @@ export default function FormArtisan({ id }) {
 			</Row>
 			<Row className="mb-3">
 				<Form.Group as={Col} md="12" controlId="message">
-					<Form.Label>Message</Form.Label>
+					<Form.Label>
+						<hr className="top-title" />
+						Message
+					</Form.Label>
 					<Form.Control
 						as="textarea"
 						rows={5}
@@ -167,6 +182,7 @@ export default function FormArtisan({ id }) {
 						onChange={handleChange}
 						isInvalid={!!errors.message}
 						aria-required="true"
+						className="mb-1 rounded-4 border-0"
 					/>
 					<Form.Control.Feedback type="invalid">
 						{errors.message}
@@ -174,11 +190,19 @@ export default function FormArtisan({ id }) {
 				</Form.Group>
 			</Row>
 
-			<Button type="submit" disabled={sending}>
+			<button
+				type="submit"
+				className="btn-form d-block mx-auto mt-4 px-3 py-2 rounded-pill w-50"
+				disabled={sending}
+			>
 				{sending ? "Envoi en cours..." : "Envoyer le message"}
-			</Button>
+			</button>
 
-			{success && <p>Votre message a bien été envoyé !</p>}
+			{success && (
+				<p className="pt-3 text-center">
+					Votre message a bien été envoyé !
+				</p>
+			)}
 		</Form>
 	);
 }

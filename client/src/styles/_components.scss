@@ -1,0 +1,205 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+//Layout
+.layout-main {
+	& > section:last-child,
+	& > div:last-child {
+	position: relative;
+	z-index: 1;
+	margin-bottom: -60px;
+	padding-bottom: 80px;
+	background: $color-background;
+	border-radius: 50px;
+	}
+}
+
+.home-header {
+	background-image: url("../assets/images/vuedelyon.jpg");
+	background-size: cover;
+	background-position: center 40%;
+	background-repeat: no-repeat;
+	min-height: 500px;
+	position: relative;
+	padding-bottom: 60px;
+
+	.search-input-group {
+		border-radius: 25px;
+	}
+}
+
+// Header
+.header {
+	box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.0793474);
+
+	.search-input-group {
+		border-bottom: 1px solid $color-blue;
+		border-right: 1px solid $color-blue;
+		border-top: 0;
+		border-left: 0;
+		border-radius: 0;
+	}
+}
+
+.logo {
+	width: auto;
+	height: 100px;
+	object-fit: contain;
+
+	@include respond-to(lg) {
+		height: 150px;
+	}
+}
+
+.header .nav-link {
+	padding: 5px;
+
+	&:hover {
+		font-weight: bold;
+		color: $color-dark;
+		border-bottom: 2px solid $color-dark;
+	}
+
+	&:active {
+		font-weight: bold;
+		color: $color-blue;
+	}
+}
+
+// Footer
+.footer {
+	width: 100%;
+	background-color: $color-blue;
+	position: relative;
+	z-index: 0;
+	padding-top: 100px;
+
+	.footer-logo {
+		background-color: $color-background;
+	}
+}
+
+.info-block {
+	color: $color-background;
+
+	a {
+		color: $color-background;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.medias {
+	background-color: $color-background;
+}
+
+.bi-facebook,
+.bi-linkedin,
+.bi-youtube {
+	color: $color-dark;
+	font-size: 1.5rem;
+
+	&:hover {
+		color: $color-blue;
+	}
+}
+
+.bi-instagram,
+.bi-twitter-x,
+.bi-whatsapp,
+.bi-tiktok {
+	color: $color-background;
+	background-color: $color-dark;
+	padding: 4px;
+	border-radius: 5px;
+	font-size: 1rem;
+
+	&:hover {
+		background-color: $color-blue;
+	}
+}
+
+//StarsNote
+.bi-star,
+.bi-star-fill,
+.bi-star-half {
+	font-size: 1.2rem;
+	color: $color-green;
+}
+
+//ArtisanCards
+.artisan-card {
+	background-color: $color-light-blue;
+	box-shadow: 1px 4px 4px rgba(0, 0, 0, 25%);
+	width: 300px;
+	color: $color-dark-blue;
+}
+
+.btn-card {
+	background-color: $color-blue;
+	color: $color-background;
+
+	&:hover {
+		background-color: $color-green;
+	}
+}
+
+//Etape
+.step-picture {
+	width: auto;
+	height: 150px;
+
+	@include respond-to(lg) {
+		height: 200px;
+	}
+}
+
+.step-text {
+	font-size: 1.2em;
+
+	h4 {
+		color: $color-red;
+	}
+}
+
+//Form
+
+.form-artisan {
+	background-color: $color-dark-blue;
+	box-shadow: 1px 4px 4px rgba(0, 0, 0, 25%);
+	color: $color-background;
+
+	.top-title {
+		color: $color-red;
+	}
+
+	.form-label {
+		font-weight: bold;
+	}
+
+	.form-control {
+		background-color: $color-light-blue;
+		
+		&:focus-within {
+			box-shadow: 0 0 0 3px $color-green;
+  		}
+
+		&.is-invalid {
+			box-shadow: 0 0 0 3px $color-red;
+		}
+	}
+
+	.btn-form {
+		background-color: $color-background;
+		color: $color-blue;
+		border: none;
+		font-weight: bold;
+
+		&:hover {
+			background-color: $color-green;
+			color: $color-background;
+		}
+	}
+}

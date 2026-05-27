@@ -1,8 +1,12 @@
 @use './fonts';
 @use './variables' as *;
 @use './mixins' as *;
+@use './components';
+@use './pages';
+@use './searchbar';
 @import  '~bootstrap-icons/font/bootstrap-icons.css';
 @import '~bootstrap/scss/bootstrap';
+
 
 * {
  margin: 0;
@@ -16,57 +20,14 @@ body {
   color: $color-dark;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-.header {
-  box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.0793474);
-}
-
-.info-block {
-  background-color: $color-blue;
-  color: $color-background;
-}
-
-.logo {
-  width: auto;
-  height: 100px;
-  max-height: 180px;
-  object-fit: contain;
-
-  @include respond-to(lg) {
-    height: 150px;
+  h1, h2, h3, h4, h5 {
+    font-weight: bold;
+    color: $color-dark-blue;
   }
-};
-
-.step-picture {
-  width: auto;
-  height: 150px;
-  max-height: 300px;
-
-  @include respond-to(lg) {
-    height: 250px;
-  }
-}
-
-
-.footer {
-  width: 100%;
-}
-
-.bi-facebook, .bi-linkedin, .bi-youtube {
-  color: $color-dark;
-  font-size: 1.5rem
-}
-
-.bi-instagram, .bi-twitter-x, .bi-whatsapp, .bi-tiktok {
-  background-color: $color-dark;
-  padding: 4px;
-  border-radius: 5px;
-  font-size: 1rem;
 }
 
 a {
   text-decoration: none;
-  color: $color-background;
 }
 

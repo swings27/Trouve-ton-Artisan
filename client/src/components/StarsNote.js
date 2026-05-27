@@ -10,14 +10,14 @@ export default function StarsNote({ note }) {
         <div aria-label={`Note : ${note} sur 5`}>
             {stars.map((_, index) => {
                 if (index < fullStar) {
-                    return <i key={index} className="bi bi-star-fill"></i>
+                    return <i key={index} className="bi bi-star-fill ps-1"></i>
                 }
 
                 if (index === fullStar && halfStar) {
-                    return <i key={index} className="bi bi-star-half"></i>
+                    return <i key={index} className="bi bi-star-half ps-1"></i>
                 }
 
-                return <i key={index} className="bi bi-star"></i>
+                return <i key={index} className="bi bi-star ps-1"></i>
             })}
         </div>
     )

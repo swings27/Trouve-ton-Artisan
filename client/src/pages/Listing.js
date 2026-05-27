@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ArtisanCard from "../components/ArtisanCard";
+import Container from "react-bootstrap/Container";
 
 export default function Listing() {
 	const { categorie } = useParams();
@@ -23,7 +24,7 @@ export default function Listing() {
 					return;
 				}
 				return fetch(
-					`${process.env.REACT_APP_API_URL}/categories/${categorieMatch.id}/artisans`
+					`${process.env.REACT_APP_API_URL}/categories/${categorieMatch.id}/artisans`,
 				);
 			})
 			.then((res) => res.json())
@@ -38,12 +39,13 @@ export default function Listing() {
 	}, [categorie]);
 
 	return (
-		<>
-			<div className="">
+		<Container fluid="lg" className="listing">
+			<div className="mt-5 px-5 py-3">
+				<hr className="top-title" />
 				<h1>{categorie}</h1>
 			</div>
-			<div>
-				<div>
+			<div className="mt-5 m-3 px-5">
+				<div className="px-5 d-sm-flex flex-column align-items-center flex-md-row flex-wrap justify-content-start gap-5">
 					{loading && <p>Chargement ...</p>}
 
 					{!loading && error && <p>Erreur de chargement.</p>}
@@ -53,15 +55,15 @@ export default function Listing() {
 						artisans.map((artisan) => (
 							<ArtisanCard
 								key={artisan.id}
-                                id={artisan.id}
+								id={artisan.id}
 								nom={artisan.nom}
-								specialite={artisan.specialite}
+								specialite={artisan.Specialite.nom}
 								ville={artisan.ville}
 								note={artisan.note}
 							/>
 						))}
 				</div>
 			</div>
-		</>
+		</Container>
 	);
 }
