@@ -73,7 +73,6 @@ export default function SearchBar() {
 	return (
 		<form
 			className="search-bar"
-			style={{ position: "relative" }}
 			onSubmit={handleSubmit}
 		>
 			<div className="search-input-group p-2">

@@ -1,11 +1,16 @@
 @use "./variables" as *;
 @use "./mixins" as *;
 
+.search-bar {
+	position: relative;
+	width: 100%;
+}
 .search-input-group {
 	display: flex;
 	align-items: center;
 	overflow: hidden;
 	background: white;
+	width: 100%;
 
   &:focus-within {
     border-color: $color-blue;
