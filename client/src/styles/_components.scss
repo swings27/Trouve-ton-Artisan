@@ -60,9 +60,10 @@
 		border-bottom: 2px solid $color-dark;
 	}
 
-	&:active {
+	&.active {
 		font-weight: bold;
-		color: $color-blue;
+		color: $color-blue !important;
+		border-bottom: none;
 	}
 }
 
@@ -133,7 +134,8 @@
 .artisan-card {
 	background-color: $color-light-blue;
 	box-shadow: 1px 4px 4px rgba(0, 0, 0, 25%);
-	width: 300px;
+	width: fit-content;
+	min-width: 300px;
 	color: $color-dark-blue;
 }
 
@@ -165,7 +167,6 @@
 }
 
 //Form
-
 .form-artisan {
 	background-color: $color-dark-blue;
 	box-shadow: 1px 4px 4px rgba(0, 0, 0, 25%);

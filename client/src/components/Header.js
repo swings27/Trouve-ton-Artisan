@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/images/Logo.png";
 import SearchBar from "./SearchBar";
 import Button from "react-bootstrap/esm/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+
 
 export default function Header() {
 	const [categories, setCategories] = useState([]);
@@ -65,8 +67,9 @@ export default function Header() {
 								!error &&
 								categories.map((categorie) => (
 									<Nav.Link
+										as={NavLink}
 										key={categorie.id}
-										href={`/${categorie.nom}/artisans`}
+										to={`/${categorie.nom}/artisans`}
 									>
 										{categorie.nom}
 									</Nav.Link>
