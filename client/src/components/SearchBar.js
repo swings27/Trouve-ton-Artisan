@@ -83,6 +83,7 @@ export default function SearchBar() {
 					onChange={(e) => setSearch(e.target.value)}
 					aria-label="Rechercher un artisan par son nom"
 					aria-autocomplete="list"
+					aria-expanded={results.length > 0}
 					aria-controls="search-results"
 					aria-activedescendant=""
 					role="combobox"
