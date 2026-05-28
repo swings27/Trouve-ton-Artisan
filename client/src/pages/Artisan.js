@@ -38,7 +38,7 @@ export default function Artisan() {
 						<div>
 							<hr className="top-title" />
 							<h1>{artisan.nom}</h1>
-							<h3>{artisan.Specialite.nom}</h3>
+							<h2>{artisan.Specialite.nom}</h2>
 						</div>
 						<a href={artisan.site_web}>Site web de {artisan.nom}</a>
 					</section>
@@ -55,7 +55,7 @@ export default function Artisan() {
 									<StarsNote note={artisan.note} />
 								</div>
 								<div className="mx-3 p-2 h-25 border-start">
-									<h5>A PROPOS</h5>
+									<h3 className="h5">A PROPOS</h3>
 									<p>{artisan.a_propos}</p>
 								</div>
 							</Col>

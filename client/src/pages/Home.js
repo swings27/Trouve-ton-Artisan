@@ -102,6 +102,7 @@ export default function Home() {
 											specialite={artisan.Specialite.nom}
 											ville={artisan.ville}
 											note={artisan.note}
+											headingLevel="h3"
 										/>
 									))}
 								</div>
