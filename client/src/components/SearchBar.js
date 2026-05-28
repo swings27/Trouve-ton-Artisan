@@ -107,8 +107,9 @@ export default function SearchBar() {
 							<li
 								key={artisan.id}
 								role="option"
+								aria-selected={false}
 								onClick={() => handleSelect(artisan)}
-								style={{ cursor: "pointer", padding: "8px 12px" }}
+								className="search-result-item"
 							>
 								{highlightMatch(artisan.nom, search)}
 							</li>

@@ -67,3 +67,14 @@
 	border: 1px solid #ccc;
 	border-radius: 25px;
 }
+
+.search-result-item {
+	padding: 8px 12px;
+
+	&:hover {
+		background-color: $color-light-blue;
+		cursor: pointer;
+		border-radius: 25px;
+	}
+}
+
