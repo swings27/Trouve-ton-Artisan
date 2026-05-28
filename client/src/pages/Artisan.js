@@ -51,7 +51,7 @@ export default function Artisan() {
 									className="defaultpic img-fluid"
 								/>
 								<div className="artisan-bar d-flex flex-row justify-content-around align-items-center my-4 p-1 rounded-pill">
-									<div className="fw-bold">{artisan.ville}</div>
+									<div className="fw-bold fs-5">{artisan.ville}</div>
 									<StarsNote note={artisan.note} />
 								</div>
 								<div className="mx-3 p-2 h-25 border-start">
