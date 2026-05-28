@@ -5,17 +5,17 @@
  * Il n'exporte rien — son simple import suffit à enregistrer les relations.
  */
 
-const sequelize = require('../config/database');
-const Categorie = require('./categories');
-const Specialite = require('./specialites');
-const Artisan = require('./artisans');
+const sequelize = require("../config/database");
+const Categorie = require("./categories");
+const Specialite = require("./specialites");
+const Artisan = require("./artisans");
 
 /**
  * Une catégorie a plusieurs spécialités.
  * Sens inverse de Specialite.belongsTo(Categorie).
  */
 Categorie.hasMany(Specialite, {
-    foreignKey: 'id_categorie'
+	foreignKey: "id_categorie",
 });
 
 /**
@@ -23,7 +23,7 @@ Categorie.hasMany(Specialite, {
  * La clé étrangère id_categorie est dans la table specialite.
  */
 Specialite.belongsTo(Categorie, {
-    foreignKey: 'id_categorie'
+	foreignKey: "id_categorie",
 });
 
 /**
@@ -31,7 +31,7 @@ Specialite.belongsTo(Categorie, {
  * Sens inverse de Artisan.belongsTo(Specialite).
  */
 Specialite.hasMany(Artisan, {
-    foreignKey: 'id_specialite'
+	foreignKey: "id_specialite",
 });
 
 /**
@@ -39,7 +39,7 @@ Specialite.hasMany(Artisan, {
  * La clé étrangère id_specialite est dans la table artisan.
  */
 Artisan.belongsTo(Specialite, {
-    foreignKey: 'id_specialite'
+	foreignKey: "id_specialite",
 });
 
 module.exports = { sequelize, Categorie, Specialite, Artisan };

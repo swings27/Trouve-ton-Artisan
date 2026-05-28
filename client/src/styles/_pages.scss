@@ -72,10 +72,10 @@
 	}
 
 	a {
-		color: $color-blue;
+		color: $color-blue !important;
 
 		&:hover {
-			color: $color-red;
+			color: $color-red !important;
 			font-weight: bold;
 		}
 	}
@@ -98,7 +98,7 @@
 .artisan-bar {
 	padding: 0 5px 0 5px;
 	color: $color-background;
-	background-color: $color-green;
+	background-color: darken($color-green, 10%);
 
 	.bi {
 		color: $color-background;

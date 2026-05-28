@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import FormArtisan from "../components/Form";
 import StarsNote from "../components/StarsNote";
-import { Col, Container, Row } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 import picdefault from "../assets/images/menuiserie.jpg";
 
 export default function Artisan() {
@@ -36,7 +38,7 @@ export default function Artisan() {
 						<div>
 							<hr className="top-title" />
 							<h1>{artisan.nom}</h1>
-							<h3>{artisan.Specialite.nom}</h3>
+							<h2>{artisan.Specialite.nom}</h2>
 						</div>
 						<a href={artisan.site_web}>Site web de {artisan.nom}</a>
 					</section>
@@ -49,11 +51,11 @@ export default function Artisan() {
 									className="defaultpic img-fluid"
 								/>
 								<div className="artisan-bar d-flex flex-row justify-content-around align-items-center my-4 p-1 rounded-pill">
-									<div className="fw-bold">{artisan.ville}</div>
+									<div className="fw-bold fs-5">{artisan.ville}</div>
 									<StarsNote note={artisan.note} />
 								</div>
 								<div className="mx-3 p-2 h-25 border-start">
-									<h5>A PROPOS</h5>
+									<h3 className="h5">A PROPOS</h3>
 									<p>{artisan.a_propos}</p>
 								</div>
 							</Col>

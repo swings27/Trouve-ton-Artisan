@@ -2,12 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import StarsNote from "./StarsNote";
 
-export default function ArtisanCard({ id, nom, note, specialite, ville }) {
+export default function ArtisanCard({
+	id,
+	nom,
+	note,
+	specialite,
+	ville,
+	headingLevel = "h2",
+}) {
+	const Heading = headingLevel;
+
 	return (
 		<article className="artisan-card p-3 rounded-4 d-flex flex-column align-items-end gap-2">
 			<StarsNote note={note} />
 			<div className="align-self-start mt-2">
-				<p className="fw-bold fs-5 text-uppercase">{nom}</p>
+				<Heading className="fs-5 fw-bold text-uppercase">{nom}</Heading>
 				<p>
 					{specialite} - {ville}
 				</p>

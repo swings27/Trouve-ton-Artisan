@@ -1,16 +1,26 @@
 @use "./variables" as *;
 @use "./mixins" as *;
 
+.logo {
+	width: auto;
+	height: 100px;
+	object-fit: contain;
+
+	@include respond-to(lg) {
+		height: 150px;
+	}
+}
+
 //Layout
 .layout-main {
 	& > section:last-child,
 	& > div:last-child {
-	position: relative;
-	z-index: 1;
-	margin-bottom: -60px;
-	padding-bottom: 80px;
-	background: $color-background;
-	border-radius: 50px;
+		position: relative;
+		z-index: 1;
+		margin-bottom: -60px;
+		padding-bottom: 80px;
+		background: $color-background;
+		border-radius: 50px;
 	}
 }
 
@@ -39,30 +49,67 @@
 		border-left: 0;
 		border-radius: 0;
 	}
-}
 
-.logo {
-	width: auto;
-	height: 100px;
-	object-fit: contain;
+	.nav-link {
+		padding: 5px;
+		width: fit-content;
 
-	@include respond-to(lg) {
-		height: 150px;
+		&:hover {
+			font-weight: bold;
+			color: $color-dark;
+			border-bottom: 2px solid $color-dark;
+		}
+
+		&.active {
+			font-weight: bold;
+			color: $color-blue !important;
+			border-bottom: none;
+		}
+	}
+
+	.navbar-collapse .nav-link {
+		min-height: 44px;
+
+		@include respond-to(lg) {
+			min-height: auto;
+		}
 	}
 }
 
-.header .nav-link {
-	padding: 5px;
+.burger-btn {
+	border: none !important;
+	background: transparent;
+	color: $color-blue !important;
+	padding: 0 6px 0 6px !important;
+
+	.bi {
+		font-size: 2rem;
+	}
+
+	p {
+		font-size: 0.8rem;
+		margin-bottom: 0;
+	}
 
 	&:hover {
-		font-weight: bold;
-		color: $color-dark;
-		border-bottom: 2px solid $color-dark;
+		color: $color-dark-blue !important;
 	}
+}
 
-	&:active {
-		font-weight: bold;
-		color: $color-blue;
+.search-toggle {
+	color: $color-blue !important;
+	background: transparent !important;
+	border: none !important;
+	font-size: 1.6rem !important;
+
+	&:hover {
+		color: $color-dark-blue !important;
+	}
+}
+
+.header-search {
+	@include respond-to(lg) {
+		width: 50%;
 	}
 }
 
@@ -133,7 +180,8 @@
 .artisan-card {
 	background-color: $color-light-blue;
 	box-shadow: 1px 4px 4px rgba(0, 0, 0, 25%);
-	width: 300px;
+	width: fit-content;
+	min-width: 300px;
 	color: $color-dark-blue;
 }
 
@@ -159,13 +207,13 @@
 .step-text {
 	font-size: 1.2em;
 
-	h4 {
+	h2 {
 		color: $color-red;
+		font-size: 1.5rem;
 	}
 }
 
 //Form
-
 .form-artisan {
 	background-color: $color-dark-blue;
 	box-shadow: 1px 4px 4px rgba(0, 0, 0, 25%);
@@ -181,10 +229,10 @@
 
 	.form-control {
 		background-color: $color-light-blue;
-		
+
 		&:focus-within {
 			box-shadow: 0 0 0 3px $color-green;
-  		}
+		}
 
 		&.is-invalid {
 			box-shadow: 0 0 0 3px $color-red;

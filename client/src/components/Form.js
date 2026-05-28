@@ -199,9 +199,7 @@ export default function FormArtisan({ id }) {
 			</button>
 
 			{success && (
-				<p className="pt-3 text-center">
-					Votre message a bien été envoyé !
-				</p>
+				<p className="pt-3 text-center">Votre message a bien été envoyé !</p>
 			)}
 		</Form>
 	);

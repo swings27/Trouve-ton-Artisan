@@ -60,7 +60,7 @@ export default function SearchBar() {
 
 	// Cliquer sur le bouton
 	const handleSubmit = (e) => {
-		e.preventDefault(); 
+		e.preventDefault();
 
 		if (results.length > 0) {
 			handleSelect(results[0]);
@@ -71,11 +71,7 @@ export default function SearchBar() {
 	};
 
 	return (
-		<form
-			className="search-bar"
-			style={{ position: "relative" }}
-			onSubmit={handleSubmit}
-		>
+		<form className="search-bar" onSubmit={handleSubmit}>
 			<div className="search-input-group p-2">
 				<Form.Control
 					type="search"
@@ -83,8 +79,11 @@ export default function SearchBar() {
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
 					aria-label="Rechercher un artisan par son nom"
-					aria-expanded={results.length > 0}
 					aria-autocomplete="list"
+					aria-expanded={results.length > 0}
+					aria-controls="search-results"
+					aria-activedescendant=""
+					role="combobox"
 				/>
 				<button
 					className="search-btn"
@@ -95,7 +94,7 @@ export default function SearchBar() {
 				</button>
 			</div>
 			{search.trim().length >= 2 && (
-				<ul className="search-dropdown">
+				<ul className="search-dropdown" id="search-results" role="listbox">
 					{searching && <li>Recherche ...</li>}
 
 					{!searching && results.length === 0 && <li>Aucun artisan trouvé</li>}
@@ -104,8 +103,10 @@ export default function SearchBar() {
 						results.map((artisan) => (
 							<li
 								key={artisan.id}
+								role="option"
+								aria-selected={false}
 								onClick={() => handleSelect(artisan)}
-								style={{ cursor: "pointer", padding: "8px 12px" }}
+								className="search-result-item"
 							>
 								{highlightMatch(artisan.nom, search)}
 							</li>

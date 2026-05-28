@@ -5,7 +5,7 @@
  */
 
 const { Op } = require("sequelize");
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 const Artisan = require("../models/artisans");
 const Specialite = require("../models/specialites");
 
@@ -24,7 +24,7 @@ const Specialite = require("../models/specialites");
 exports.getById = async (req, res, next) => {
 	try {
 		const selectedArtisan = await Artisan.findByPk(req.params.id, {
-			include: [{ model: Specialite, attributes: ['nom'] }],
+			include: [{ model: Specialite, attributes: ["nom"] }],
 		});
 
 		if (!selectedArtisan) {
@@ -101,20 +101,20 @@ exports.contactArtisan = async (req, res, next) => {
 	try {
 		const wantedArtisan = await Artisan.findByPk(req.params.id);
 
-		if(!wantedArtisan) {
+		if (!wantedArtisan) {
 			return res.status(404).json({ message: "Artisan non trouvé" });
 		}
 
 		const testAccount = await nodemailer.createTestAccount();
 
 		const transporter = nodemailer.createTransport({
-			host: 'smtp.ethereal.email',
+			host: "smtp.ethereal.email",
 			port: 587,
 			secure: false,
 			auth: {
 				user: process.env.ETHEREAL_USER,
-				pass: process.env.ETHEREAL_PASS
-			}
+				pass: process.env.ETHEREAL_PASS,
+			},
 		});
 
 		const info = await transporter.sendMail({
@@ -122,17 +122,16 @@ exports.contactArtisan = async (req, res, next) => {
 			to: wantedArtisan.email,
 			replyTo: req.body.email,
 			subject: req.body.objet,
-			text: `Message de ${req.body.nom} (${req.body.email}):\n\n${req.body.message}`
+			text: `Message de ${req.body.nom} (${req.body.email}):\n\n${req.body.message}`,
 		});
 
-		console.log('Email consultable ici :', nodemailer.getTestMessageUrl(info));
+		console.log("Email consultable ici :", nodemailer.getTestMessageUrl(info));
 
-		return res.status(200).json({ message: 'Email envoyé avec succès.' });
-
-	} catch(error) {
+		return res.status(200).json({ message: "Email envoyé avec succès." });
+	} catch (error) {
 		console.error("Erreur de l'envoi de l'email :", error);
 		return res
 			.status(500)
 			.json({ message: "Erreur serveur", error: error.message });
 	}
-}
+};
