@@ -4,9 +4,9 @@
  * Chaque fonction correspond à une requête Sequelize utilisée par les routes catégories.
  */
 
-const Categorie = require('../models/categories');
-const Specialite = require('../models/specialites');
-const Artisan = require('../models/artisans');
+const Categorie = require("../models/categories");
+const Specialite = require("../models/specialites");
+const Artisan = require("../models/artisans");
 
 /**
  * Récupère toutes les catégories pour alimenter le menu de navigation.
@@ -18,15 +18,17 @@ const Artisan = require('../models/artisans');
  * @throws {500} En cas d'erreur serveur
  */
 exports.getAll = async (req, res, next) => {
-    try {
-        const categories = await Categorie.findAll({
-            attributes: ['id', 'nom']
-        });
-        return res.status(200).json(categories)
-    } catch (error) {
-        console.error("Erreur de récupération des catégories :", error);
-        return res.status(500).json({ message: 'Erreur serveur', error: error.message });
-    }
+	try {
+		const categories = await Categorie.findAll({
+			attributes: ["id", "nom"],
+		});
+		return res.status(200).json(categories);
+	} catch (error) {
+		console.error("Erreur de récupération des catégories :", error);
+		return res
+			.status(500)
+			.json({ message: "Erreur serveur", error: error.message });
+	}
 };
 
 /**
@@ -41,16 +43,16 @@ exports.getAll = async (req, res, next) => {
  * @throws {500} En cas d'erreur serveur
  */
 exports.getByCategorie = async (req, res, next) => {
-    try {
-        const artisans = await Artisan.findAll({
-            include: [{ model: Specialite,
-                include: [{ model: Categorie }] 
-            }],
-            where: { '$Specialite.id_categorie$': req.params.id }
-        });
-        return res.status(200).json(artisans)
-    } catch (error) {
-        console.error("Erreur de récupération des artisans par catégorie", error);
-        return res.status(500).json({ message: 'Erreur serveur', error: error.message });
-    }
+	try {
+		const artisans = await Artisan.findAll({
+			include: [{ model: Specialite, include: [{ model: Categorie }] }],
+			where: { "$Specialite.id_categorie$": req.params.id },
+		});
+		return res.status(200).json(artisans);
+	} catch (error) {
+		console.error("Erreur de récupération des artisans par catégorie", error);
+		return res
+			.status(500)
+			.json({ message: "Erreur serveur", error: error.message });
+	}
 };

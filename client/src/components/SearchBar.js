@@ -60,7 +60,7 @@ export default function SearchBar() {
 
 	// Cliquer sur le bouton
 	const handleSubmit = (e) => {
-		e.preventDefault(); 
+		e.preventDefault();
 
 		if (results.length > 0) {
 			handleSelect(results[0]);
@@ -71,10 +71,7 @@ export default function SearchBar() {
 	};
 
 	return (
-		<form
-			className="search-bar"
-			onSubmit={handleSubmit}
-		>
+		<form className="search-bar" onSubmit={handleSubmit}>
 			<div className="search-input-group p-2">
 				<Form.Control
 					type="search"

@@ -69,14 +69,14 @@ export default function Header() {
 					</button>
 				</div>
 				<div className="d-flex flex-lg-column align-items-end flex-md-row w-100">
-					<Navbar.Collapse in={searchOpen} id="search-collapse" className="my-3 header-search">
+					<Navbar.Collapse
+						in={searchOpen}
+						id="search-collapse"
+						className="my-3 header-search"
+					>
 						<SearchBar />
 					</Navbar.Collapse>
-					<Navbar.Collapse
-						in={menuOpen}
-						id="basic-navbar-nav"
-						className="my-4"
-					>
+					<Navbar.Collapse in={menuOpen} id="basic-navbar-nav" className="my-4">
 						<Nav className="mx-3 gap-2">
 							{loading && <Nav.Link disabled>Chargement...</Nav.Link>}
 

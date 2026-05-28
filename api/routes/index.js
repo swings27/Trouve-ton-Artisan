@@ -5,13 +5,13 @@
  * Délègue les requêtes aux routers spécialisés selon le préfixe d'URL.
  */
 
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 /** Router des routes /categories */
-const categoriesRouter = require('./categories');
+const categoriesRouter = require("./categories");
 /** Router des routes /artisans */
-const artisansRouter = require('./artisans');
+const artisansRouter = require("./artisans");
 
 /**
  * @swagger
@@ -23,8 +23,8 @@ const artisansRouter = require('./artisans');
  *       200:
  *         description: API opérationnelle
  */
-router.get('/', function(req, res, next) {
-  res.json({ message: 'API Trouve ton Artisan' });
+router.get("/", function (req, res, next) {
+	res.json({ message: "API Trouve ton Artisan" });
 });
 
 /** Délègue toutes les routes /categories au router dédié */

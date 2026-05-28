@@ -6,7 +6,6 @@ import Col from "react-bootstrap/Col";
 import Media from "./Media";
 import Legals from "./Legals";
 
-
 export default function Footer() {
 	return (
 		<div className="footer">
@@ -32,7 +31,9 @@ export default function Footer() {
 					</Col>
 					<Col lg={4} md={12}>
 						<ul className="list-unstyled">
-							<li className="py-1">Ouvert du lundi au vendredi de 8h 15 à 17h</li>
+							<li className="py-1">
+								Ouvert du lundi au vendredi de 8h 15 à 17h
+							</li>
 							<li className="py-1">
 								<a
 									href="tel:+33426734000"
@@ -42,7 +43,9 @@ export default function Footer() {
 									+33 (0)4 26 73 40 00
 								</a>
 							</li>
-							<li className="py-1">Accueil téléphonique du lundi au vendredi de 8h 30 à 17h</li>
+							<li className="py-1">
+								Accueil téléphonique du lundi au vendredi de 8h 30 à 17h
+							</li>
 							<li className="py-1">
 								<div className="d-flex align-items-center gap-2">
 									<i className="bi bi-train-front" aria-hidden="true"></i>
@@ -54,19 +57,19 @@ export default function Footer() {
 						</ul>
 					</Col>
 				</Row>
-					<div className="border-top border-white pt-2">
-						<ul className="d-lg-flex flex-wrap justify-content-center gap-3 list-unstyled my-2">
-							<Legals name="Mentions légales" />
-							<Legals name="Données personnelles" />
-							<Legals name="Accessibilité : partiellement conforme" />
-							<Legals name="Presse" />
-							<Legals name="Marchés publics" />
-							<Legals name="Venir à la Région" />
-							<Legals name="Contacts" />
-							<Legals name="Politique des cookies" />
-							<Legals name="Gestion des cookies" />
-						</ul>
-					</div>
+				<div className="border-top border-white pt-2">
+					<ul className="d-lg-flex flex-wrap justify-content-center gap-3 list-unstyled my-2">
+						<Legals name="Mentions légales" />
+						<Legals name="Données personnelles" />
+						<Legals name="Accessibilité : partiellement conforme" />
+						<Legals name="Presse" />
+						<Legals name="Marchés publics" />
+						<Legals name="Venir à la Région" />
+						<Legals name="Contacts" />
+						<Legals name="Politique des cookies" />
+						<Legals name="Gestion des cookies" />
+					</ul>
+				</div>
 			</Container>
 			<div className="medias py-3">
 				<ul className="list-inline d-flex flex-wrap justify-content-center align-items-center gap-3">

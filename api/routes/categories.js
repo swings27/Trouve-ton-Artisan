@@ -6,7 +6,7 @@
 
 const express = require("express");
 const router = express.Router();
-const { param } = require('express-validator');
+const { param } = require("express-validator");
 const validate = require("../middlewares/validate");
 const service = require("../services/categories");
 

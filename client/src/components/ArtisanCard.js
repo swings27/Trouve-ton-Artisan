@@ -2,7 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import StarsNote from "./StarsNote";
 
-export default function ArtisanCard({ id, nom, note, specialite, ville, headingLevel = "h2" }) {
+export default function ArtisanCard({
+	id,
+	nom,
+	note,
+	specialite,
+	ville,
+	headingLevel = "h2",
+}) {
 	const Heading = headingLevel;
 
 	return (

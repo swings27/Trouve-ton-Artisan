@@ -12,40 +12,40 @@
 	background: white;
 	width: 100%;
 
-  &:focus-within {
-    border-color: $color-blue;
-    box-shadow: 0 0 0 2px $color-green;
-  }
+	&:focus-within {
+		border-color: $color-blue;
+		box-shadow: 0 0 0 2px $color-green;
+	}
 
 	.form-control {
 		border: none;
 		outline: none;
-    background: transparent;
-    flex: 1;
+		background: transparent;
+		flex: 1;
 
 		&::placeholder {
 			color: rgba($color-dark, 0.6);
 			opacity: 1;
 		}
 
-    &:focus {
-      box-shadow: none;
-      border: none;
-      outline: none;
-    }
+		&:focus {
+			box-shadow: none;
+			border: none;
+			outline: none;
+		}
 	}
 
 	.search-btn {
 		border: none;
 		background: transparent;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
+		width: 35px;
+		height: 35px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
 		color: $color-blue;
-    flex-shrink: 0;
+		flex-shrink: 0;
 
 		&:hover {
 			color: $color-background;
@@ -77,4 +77,3 @@
 		border-radius: 25px;
 	}
 }
-
