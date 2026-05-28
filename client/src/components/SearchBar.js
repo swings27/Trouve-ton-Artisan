@@ -82,8 +82,10 @@ export default function SearchBar() {
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
 					aria-label="Rechercher un artisan par son nom"
-					aria-expanded={results.length > 0}
 					aria-autocomplete="list"
+					aria-controls="search-results"
+					aria-activedescendant=""
+					role="combobox"
 				/>
 				<button
 					className="search-btn"
@@ -94,7 +96,7 @@ export default function SearchBar() {
 				</button>
 			</div>
 			{search.trim().length >= 2 && (
-				<ul className="search-dropdown">
+				<ul className="search-dropdown" id="search-results" role="listbox">
 					{searching && <li>Recherche ...</li>}
 
 					{!searching && results.length === 0 && <li>Aucun artisan trouvé</li>}
@@ -103,6 +105,7 @@ export default function SearchBar() {
 						results.map((artisan) => (
 							<li
 								key={artisan.id}
+								role="option"
 								onClick={() => handleSelect(artisan)}
 								style={{ cursor: "pointer", padding: "8px 12px" }}
 							>

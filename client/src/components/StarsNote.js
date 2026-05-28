@@ -7,7 +7,7 @@ export default function StarsNote({ note }) {
     const halfStar = note % 1 >= 0.5;
 
     return (
-        <div aria-label={`Note : ${note} sur 5`}>
+        <div role="img" aria-label={`Note : ${note} sur 5`}>
             {stars.map((_, index) => {
                 if (index < fullStar) {
                     return <i key={index} className="bi bi-star-fill ps-1"></i>
