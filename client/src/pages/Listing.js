@@ -44,8 +44,8 @@ export default function Listing() {
 				<hr className="top-title" />
 				<h1>{categorie}</h1>
 			</div>
-			<div className="mt-5 m-3 px-5">
-				<div className="px-5 d-sm-flex flex-column align-items-center flex-md-row flex-wrap justify-content-start gap-5">
+			<div className="mt-5 m-3 px-4">
+				<div className="d-flex flex-column align-items-center flex-md-row flex-wrap justify-content-evenly gap-5">
 					{loading && <p>Chargement ...</p>}
 
 					{!loading && error && <p>Erreur de chargement.</p>}
