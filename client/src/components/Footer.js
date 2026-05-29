@@ -71,7 +71,7 @@ export default function Footer() {
 					</ul>
 				</div>
 			</Container>
-			<div className="medias py-3">
+			<div className="medias pt-3">
 				<ul className="list-inline d-flex flex-wrap justify-content-center align-items-center gap-3">
 					<Media icon="bi bi-facebook" label="Nous suivre sur Facebook" />
 					<Media icon="bi bi-linkedin" label="Nous suivre sur LinkedIn" />

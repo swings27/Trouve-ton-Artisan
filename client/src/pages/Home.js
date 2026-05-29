@@ -70,7 +70,7 @@ export default function Home() {
 
 						{!loading && !error && (
 							<>
-								<div className="d-sm-none py-5 px-4">
+								<div className="d-sm-none py-5 px-1">
 									<Carousel
 										aria-label="Les 3 artisans du mois"
 										indicators={true}
@@ -79,7 +79,7 @@ export default function Home() {
 										className="pb-4"
 									>
 										{artisans.map((artisan) => (
-											<Carousel.Item key={artisan.id} className="px-2 pb-5">
+											<Carousel.Item key={artisan.id} className="pb-5">
 												<div className="d-flex justify-content-center">
 													<ArtisanCard
 														id={artisan.id}

@@ -192,7 +192,7 @@ export default function FormArtisan({ id }) {
 
 			<button
 				type="submit"
-				className="btn-form d-block mx-auto mt-4 px-3 py-2 rounded-pill w-50"
+				className="btn-form d-block mx-auto mt-4 px-3 py-2 rounded-pill"
 				disabled={sending}
 			>
 				{sending ? "Envoi en cours..." : "Envoyer le message"}
