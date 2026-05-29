@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/Logo.png";
 import SearchBar from "./SearchBar";
 import Button from "react-bootstrap/Button";
@@ -41,7 +41,7 @@ export default function Header() {
 		<Navbar data-bs-theme="light" expand="lg" className="header p-0">
 			<Container fluid="lg">
 				<div className="d-flex align-items-center w-100">
-					<Navbar.Brand href="/" className="flex-grow-1">
+					<Navbar.Brand as={Link} to="/" className="flex-grow-1">
 						<img
 							src={logo}
 							alt="Trouve ton artisan ! - Accueil"
