@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ArtisanCard from "../components/ArtisanCard";
 import Container from "react-bootstrap/Container";
+import useSEO from "../hooks/useSEO";
 
 export default function Listing() {
 	const { categorie } = useParams();
@@ -37,6 +38,15 @@ export default function Listing() {
 				setLoading(false);
 			});
 	}, [categorie]);
+
+	useSEO({
+		title: categorie
+			? `${categorie} | Trouve ton artisan !`
+			: "Liste des artisans | Trouve ton artisan !",
+		description: categorie
+			? `Découvrez tous les artisans ${categorie} de la région Auvergne-Rhône-Alpes.`
+			: "Liste des artisans de la région Auvergne-Rhône-Alpes."
+	});
 
 	return (
 		<Container fluid="lg" className="listing">

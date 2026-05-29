@@ -8,8 +8,14 @@ import Step4 from "../assets/images/chronometre.png";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Carousel from "react-bootstrap/Carousel";
+import useSEO from "../hooks/useSEO";
 
 export default function Home() {
+	useSEO({
+		title: "Trouve ton artisan ! | Accueil",
+		description: "Trouvez facilement un artisan en Auvergne-Rhône-Alpes",
+	});
+
 	const [artisans, setArtisans] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
