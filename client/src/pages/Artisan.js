@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import picdefault from "../assets/images/menuiserie.jpg";
+import useSEO from "../hooks/useSEO";
 
 export default function Artisan() {
 	const [artisan, setArtisan] = useState(null);
@@ -25,6 +26,15 @@ export default function Artisan() {
 				setLoading(false);
 			});
 	}, [id]);
+
+	useSEO({
+		title: artisan
+			? `${artisan.nom} - ${artisan.Specialite.nom} | Trouve ton artisan !`
+			: "Fiche artisan | Trouve ton artisan !",
+		description: artisan
+			? `Contactez ${artisan.nom} à ${artisan.ville}.`
+			: "Découvrez la fiche complète de cet artisan."
+	});
 
 	return (
 		<Container fluid="lg">
