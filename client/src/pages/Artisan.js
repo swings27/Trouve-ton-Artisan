@@ -33,16 +33,16 @@ export default function Artisan() {
 			{!loading && error && <p>Erreur de chargement.</p>}
 
 			{!loading && !error && artisan && (
-				<div className="mt-5 mx-5">
-					<section className="artisan-header d-flex flex-row justify-content-between align-items-end">
+				<div className="mt-5 mx-0 mx-md-5">
+					<section className="artisan-header d-sm-flex flex column d-md-flex flex-row justify-content-between align-items-end">
 						<div>
 							<hr className="top-title" />
 							<h1>{artisan.nom}</h1>
-							<h2>{artisan.Specialite.nom}</h2>
+							<h2>- {artisan.Specialite.nom}</h2>
 						</div>
 						<a href={artisan.site_web}>Site web de {artisan.nom}</a>
 					</section>
-					<section className="mx-3 my-5">
+					<section className="mx-2 my-5">
 						<Row className="gx-5">
 							<Col xs={12} md={6} className="artisan-infos mt-3 mb-5">
 								<img

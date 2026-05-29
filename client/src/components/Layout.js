@@ -3,10 +3,12 @@ import Container from "react-bootstrap/Container";
 import Header from "./Header";
 import Footer from "./Footer";
 import SearchBar from "./SearchBar";
+import ScrollToTop from "./ScrollToTop";
 
 export default function Layout({ hero, children }) {
 	return (
 		<>
+			<ScrollToTop />
 			<Header />
 			{hero && (
 				<section className="home-header d-flex align-items-center">
